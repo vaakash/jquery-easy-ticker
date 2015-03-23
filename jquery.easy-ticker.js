@@ -75,7 +75,8 @@
 
         function init() {
 
-            var ticks = s.elem.children().css('margin', 0).children().css('margin', 0);
+            var ticks = s.elem.children().css('margin', 0).children().css('margin', 0),
+                horizontal = s.opts.direction == 'right' || s.opts.direction == 'left';
 
             s.elem.css({
                 position: 'relative',
@@ -88,17 +89,12 @@
                 'margin': 0
             });
 
-            if (s.opts.direction == 'right' || s.opts.direction == 'left') {
-                s.targ.width(function () {
-                    var w = 0;
-                    ticks.each(function () { w += $(this).outerWidth() });
-                    return w;
-                });
+            if (horizontal) {
                 ticks.css('float', 'right');
             }
 
             setInterval(function () {
-                adjHeight();
+                adjSize(s.opts.direction);
             }, 100);
 
         } // Init Method
@@ -160,7 +156,7 @@
                 selChild.hide()[appType](s.targ).fadeIn();
                 s.targ.css(/*'top'*/ prop, 0);
 
-                adjHeight();
+                adjSize(dir);
 
             });
         }// Move
@@ -171,20 +167,28 @@
             // start();
         }
 
-        function fullHeight() {
-            var height = 0;
+        function fullSize() {
+            var size = 0;
             var tempDisp = s.elem.css('display'); // Get the current el display value
+            var vertical = (s.opts.direction == 'up' || s.opts.direction == 'down');
+            var prop = vertical ? 'height' : 'width';
+            var elem = vertical ? s.elem : s.targ;
+            var children = s.targ.children();
 
             s.elem.css('display', 'block');
 
-            s.targ.children().each(function () {
-                height += $(this).outerHeight();
+            children.each(function () {
+                size += (vertical ? $(this).outerHeight() : $(this).outerWidth());
             });
 
-            s.elem.css({
-                'display': tempDisp,
-                'height': height
-            });
+            var style = {
+                'display': tempDisp
+            }
+            style[prop] = size;
+            elem.css(style);
+            if (!vertical) {
+                s.elem.css('height', children.eq(0).outerHeight());
+            }
         }
 
         function visHeight(anim) {
@@ -200,12 +204,17 @@
             }
         }
 
-        function adjHeight() {
-            if (s.opts.height == 'auto' && s.opts.visible != 0) {
-                anim = arguments.callee.caller.name == 'init' ? 0 : 1;
-                visHeight(anim);
-            } else if (s.opts.height == 'auto') {
-                fullHeight();
+        function adjSize(dir) {
+            if (dir == 'up' || dir == 'down') {
+                if (s.opts.height == 'auto' && s.opts.visible != 0) {
+                    anim = arguments.callee.caller.name == 'init' ? 0 : 1;
+                    visHeight(anim);
+                } else if (s.opts.height == 'auto') {
+                    fullSize();
+                }
+            }
+            else {
+                fullSize();
             }
         }
 
