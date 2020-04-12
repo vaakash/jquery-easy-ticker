@@ -14,21 +14,21 @@
 		"vertical",
 		"easing"
     ],
-    "version": "2.0.0",
+    "version": "3.0.0",
     "author": {
         "name": "Aakash Chakravarthy",
-        "url": "http://www.aakashweb.com/"
+        "url": "https://www.aakashweb.com/"
     },
     "licenses": [
         {
             "type": "MIT",
-            "url": "http://opensource.org/licenses/mit-license.php"
+            "url": "https://opensource.org/licenses/mit-license.php"
         }
     ],
-    "bugs": "http://www.aakashweb.com/jquery-plugins/easy-ticker/",
-    "homepage": "http://www.aakashweb.com/jquery-plugins/easy-ticker/",
-    "docs": "http://www.aakashweb.com/jquery-plugins/easy-ticker/#docs",
-    "demo": "http://www.aakashweb.com/demos/jquery-easy-ticker/",
+    "bugs": "https://www.aakashweb.com/jquery-plugins/easy-ticker/",
+    "homepage": "https://www.aakashweb.com/jquery-plugins/easy-ticker/",
+    "docs": "https://www.aakashweb.com/jquery-plugins/easy-ticker/#docs",
+    "demo": "https://www.aakashweb.com/demos/jquery-easy-ticker/",
     "dependencies": {
         "jquery": ">=1.7"
     }
