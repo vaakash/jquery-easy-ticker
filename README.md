@@ -1,10 +1,8 @@
 # jQuery Easy Ticker plugin
 
-jQuery easy ticker is a news ticker like plugin, which scrolls the list infinitely. It is highly customizable, flexible with lot of features and works in all browsers.
+jQuery easy ticker is a news ticker like plugin which scrolls the list infinitely. It is highly customizable and flexible with lots of features and works in all browsers.
 
-## Demo
-
-[Live plugin demo](http://www.aakashweb.com/demos/jquery-easy-ticker/) | [Plugin Home page](http://www.aakashweb.com/jquery-plugins/easy-ticker/)
+[👁️ Live demo](https://www.aakashweb.com/demos/jquery-easy-ticker/) - [🏠 Home page](https://www.aakashweb.com/jquery-plugins/easy-ticker/) - [☕ Buy me a Coffee !](https://www.paypal.me/vaakash/6)
 
 ## Features
 
@@ -14,52 +12,87 @@ jQuery easy ticker is a news ticker like plugin, which scrolls the list infinite
 * Supports 'easing' functions.
 * Mouse pause feature available.
 * The speed of the transition can be changed.
-* Controls can be added inorder to Play/pause or move the list Up and down.
+* Controls can be added in order to Play/pause or move the list up and down.
 * Cross browser support.
-* Light-weight (4 Kb - Full source / 2.7 Kb - Minified source).
+* Light weight (2.65 Kb - minified).
 
-## Syntax
+## Usage
 
-Include jQuery and jQuery easy ticker in the source and use the 
+Include jQuery and easy ticker plugin (available under dist/) in the page.
+
+```HTML
+<script src="jquery.js"></script>
+<script src="jquery.easy-ticker.min.js"></script>
+```
 
 **HTML**
 
-target --> parent --> children
- 
+Wrapper > Target > Children
+
 ```HTML
 <div class="myWrapper">
-	<ul>
-		<li>List element 1</li>
-		<li>List element 2</li>
-		<li>List element 3</li>
-		<li>List element 4</li>
-	</ul>
+    <ul>
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li>List item 3</li>
+        <li>List item 4</li>
+    </ul>
 </div>
+```
 
 or
 
+```HTML
 <div class="myWrapper">
-	<div>
-		<div>Element 1</div>
-		<div>Element 2</div>
-		<div>Element 3</div>
-		<div>Element 4</div>
-	</div>
+    <div>
+        <div>List item 1</div>
+        <div>List item 2</div>
+        <div>List item 3</div>
+        <div>List item 4</div>
+    </div>
 </div>
 ```
+
 **jQuery**
 
+With default options
+
 ```JavaScript
-$('.myWrapper').easyTicker({
-	// list of properties
+$(document).ready(function(){
+    
+    $('.myWrapper').easyTicker({
+        direction: 'up',
+        easing: 'swing',
+        speed: 'slow',
+        interval: 2000,
+        height: 'auto',
+        visible: 0,
+        mousePause: true,
+        controls: {
+            up: '',
+            down: '',
+            toggle: '',
+            playText: 'Play',
+            stopText: 'Stop'
+        },
+        callbacks: {
+            before: false,
+            after: false
+        }
+    });
+
 });
 ```
 
-[Demo](http://www.aakashweb.com/demos/jquery-easy-ticker/)
+[See demo](https://www.aakashweb.com/demos/jquery-easy-ticker/)
+
+## Buy me a coffee !
+
+Like this plugin ? If you find it useful and if it helped solved your problem, feel free to [Buy me a Coffee !](https://www.paypal.me/vaakash/6) 😀
 
 ## Documentation
 
-Plugin's documentation is written in its official home page. Check it out in [this link](http://www.aakashweb.com/jquery-plugins/easy-ticker/)
+Plugin's documentation is available in the plugin homepage. Please refer [this page](https://www.aakashweb.com/jquery-plugins/easy-ticker/) for more details on usage, options and customization features.
 
 ## Requirements
 
@@ -67,4 +100,4 @@ Plugin's documentation is written in its official home page. Check it out in [th
 
 ## License
 
-Copyright (c) 2014 [Aakash Chakravarthy](http://www.aakashweb.com/), released under the MIT License.
+Copyright (c) 2020 [Aakash Chakravarthy](https://www.aakashweb.com/), released under the MIT License.
