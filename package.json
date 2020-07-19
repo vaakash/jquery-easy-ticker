@@ -23,10 +23,10 @@
   },
   "homepage": "https://github.com/vaakash/jquery-easy-ticker#readme",
   "dependencies": {
-    "jquery": "^3.5.0"
+    "jquery": "^3.5.1"
   },
   "devDependencies": {
-    "grunt": "^1.1.0",
+    "grunt": "^1.2.1",
     "grunt-contrib-uglify": "^4.0.1"
   }
 }
