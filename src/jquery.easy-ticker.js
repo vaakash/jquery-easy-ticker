@@ -1,7 +1,7 @@
-/* 
- * jQuery - Easy Ticker plugin - v3.1.0
+/*
+ * jQuery - Easy Ticker plugin - v3.2
  * https://www.aakashweb.com/
- * Copyright 2020, Aakash Chakravarthy
+ * Copyright 2021, Aakash Chakravarthy
  * Released under the MIT License.
  */
 
@@ -38,22 +38,16 @@
         s.elem = $(el);
         s.targ = $(el).children(':first-child');
         s.timer = 0;
-        s.winFocus = 1;
         
         init();
         start();
-        
-        $([window, document]).off('focus').on('focus', function(){
-            s.winFocus = 1;
-        }).off('blur').on('blur', function(){
-            s.winFocus = 0;
-        });
+        tabFocusHandle();
         
         if(s.opts.mousePause){
-            s.elem.mouseenter(function(){
+            s.elem.on('mouseenter', function(){
                 s.timerTemp = s.timer;
                 stop();
-            }).mouseleave(function(){
+            }).on('mouseleave', function(){
                 if(s.timerTemp !== 0)
                     start();
             });
@@ -98,13 +92,10 @@
         
         function start(){
             s.timer = setInterval(function(){
-                if(s.winFocus == 1){
-                    move(s.opts.direction);
-                }
+                move(s.opts.direction);
             }, s.opts.interval);
 
             $(s.opts.controls.toggle).addClass('et-run').html(s.opts.controls.stopText);
-            
         }
         
         function stop(){
@@ -207,6 +198,31 @@
 
         }
         
+        function tabFocusHandle(){
+
+            var hidden, visibilityChange;
+
+            if(typeof document.hidden !== 'undefined'){
+                hidden = 'hidden';
+                visibilityChange = 'visibilitychange';
+            }else if (typeof document.msHidden !== 'undefined'){
+                hidden = 'msHidden';
+                visibilityChange = 'msvisibilitychange';
+            }else if (typeof document.webkitHidden !== 'undefined'){
+                hidden = 'webkitHidden';
+                visibilityChange = 'webkitvisibilitychange';
+            }
+            
+            document.addEventListener(visibilityChange, function(){
+                if(document[hidden]){
+                    stop();
+                }else{
+                    start();
+                }
+            }, false);
+
+        }
+
         return {
             up: function(){ moveDir('up'); },
             down: function(){ moveDir('down'); },

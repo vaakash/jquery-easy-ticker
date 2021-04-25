@@ -1,6 +1,6 @@
 # jQuery Easy Ticker plugin
 
-jQuery easy ticker is a news ticker like plugin which scrolls the list infinitely. It is highly customizable and flexible with lots of features and works in all browsers.
+jQuery easy ticker is a news ticker like plugin which scrolls a list infinitely. It is highly customizable, flexible with lots of features and works in all browsers.
 
 [👁️ Live demo](https://www.aakashweb.com/demos/jquery-easy-ticker/) - [🏠 Home page](https://www.aakashweb.com/jquery-plugins/easy-ticker/) - [☕ Buy me a Coffee !](https://www.paypal.me/vaakash/6)
 
@@ -14,7 +14,7 @@ jQuery easy ticker is a news ticker like plugin which scrolls the list infinitel
 * The speed of the transition can be changed.
 * Controls can be added in order to Play/pause or move the list up and down.
 * Cross browser support.
-* Light weight (2.65 Kb - minified).
+* Light weight (2.7 KB - minified).
 
 ## Usage
 
@@ -100,4 +100,4 @@ Plugin's documentation is available in the plugin homepage. Please refer [this p
 
 ## License
 
-Copyright (c) 2020 [Aakash Chakravarthy](https://www.aakashweb.com/), released under the MIT License.
+Copyright (c) 2021 [Aakash Chakravarthy](https://www.aakashweb.com/), released under the MIT License.

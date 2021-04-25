@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 
         uglify: {
             options: {
-                banner: '/*jQuery easy ticker v<%= pkg.version %> - (c) 2020 <%= pkg.author %>*/'
+                banner: '/*jQuery easy ticker v<%= pkg.version %> - (c) 2021 <%= pkg.author %>*/'
             },
             my_target: {
                 files: {
