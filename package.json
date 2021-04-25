@@ -1,6 +1,6 @@
 {
   "name": "jquery-easy-ticker",
-  "version": "3.2",
+  "version": "3.2.1",
   "description": "jQuery easy ticker plugin allows to add news ticker like scroll to list elements",
   "scripts": {
     "build": "grunt"

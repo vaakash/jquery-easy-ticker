@@ -1,5 +1,5 @@
 /*
- * jQuery - Easy Ticker plugin - v3.2
+ * jQuery - Easy Ticker plugin - v3.2.1
  * https://www.aakashweb.com/
  * Copyright 2021, Aakash Chakravarthy
  * Released under the MIT License.
@@ -91,6 +91,10 @@
         }
         
         function start(){
+
+            if(s.timer != 0)
+                return;
+
             s.timer = setInterval(function(){
                 move(s.opts.direction);
             }, s.opts.interval);
