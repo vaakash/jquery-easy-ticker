@@ -1,7 +1,7 @@
 /*
  * jQuery - Easy Ticker plugin - v3.3.0
  * https://www.aakashweb.com/
- * Copyright 2021, Aakash Chakravarthy
+ * Copyright 2022, Aakash Chakravarthy
  * Released under the MIT License.
  */
 
