@@ -54,7 +54,14 @@ $(document).ready(function(){
         myET.start();
     });
     
-    $('.myTicker3').easyTicker();
+    var ticker3 = $('.myTicker3').easyTicker().data('easyTicker');
+    $('.up3').click(function(){
+        ticker3.up();
+    });
+
+    $('.down3').click(function(){
+        ticker3.down();
+    });
 
 });
 </script>
@@ -92,6 +99,7 @@ $(document).ready(function(){
 </div>
 
 <h2>Ticker 3</h2>
+<button class="up3">Up</button> <button class="down3">Down</button>
 <div class="myTicker3">
     <ul>
         <li>Triangles can be made easily using CSS also without any images. This trick requires only div tags and some CSS works. To get this trick, just use the code below.</li>

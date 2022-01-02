@@ -14,7 +14,7 @@ jQuery easy ticker is a news ticker like plugin which scrolls a list infinitely.
 * The speed of the transition can be changed.
 * Controls can be added in order to Play/pause or move the list up and down.
 * Cross browser support.
-* Light weight (2.72 KB - minified).
+* Light weight (2.76 KB - minified).
 
 ## Usage
 
@@ -100,4 +100,4 @@ Plugin's documentation is available in the plugin homepage. Please refer [this p
 
 ## License
 
-Copyright (c) 2021 [Aakash Chakravarthy](https://www.aakashweb.com/), released under the MIT License.
+Copyright (c) 2022 [Aakash Chakravarthy](https://www.aakashweb.com/), released under the MIT License.

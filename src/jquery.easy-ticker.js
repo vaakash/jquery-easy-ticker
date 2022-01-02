@@ -1,5 +1,5 @@
 /*
- * jQuery - Easy Ticker plugin - v3.2.1
+ * jQuery - Easy Ticker plugin - v3.3.0
  * https://www.aakashweb.com/
  * Copyright 2021, Aakash Chakravarthy
  * Released under the MIT License.
@@ -38,6 +38,7 @@
         s.elem = $(el);
         s.targ = $(el).children(':first-child');
         s.timer = 0;
+        s.moving = false;
         
         init();
         start();
@@ -111,6 +112,8 @@
         function move(dir){
             var sel, eq, appType;
 
+            if(s.moving) return;
+
             if(!s.elem.is(':visible')) return;
 
             if(dir == 'up'){
@@ -130,6 +133,8 @@
                 s.opts.callbacks.before.call(s, s.targ, selChild);
             }
 
+            s.moving = true;
+
             s.targ.stop(true, true).animate({
                 'top': eq + height + 'px'
             }, s.opts.speed, s.opts.easing, function(){
@@ -138,7 +143,9 @@
                 s.targ.css('top', 0);
                 
                 adjustHeight(true);
-                
+
+                s.moving = false;
+
                 if(typeof s.opts.callbacks.after === 'function'){
                     s.opts.callbacks.after.call(s, s.targ, selChild);
                 }
