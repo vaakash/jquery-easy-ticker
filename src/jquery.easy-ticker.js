@@ -1,5 +1,5 @@
 /*
- * jQuery - Easy Ticker plugin - v3.3.0
+ * jQuery - Easy Ticker plugin - v3.4.0
  * https://www.aakashweb.com/
  * Copyright 2022, Aakash Chakravarthy
  * Released under the MIT License.
@@ -25,7 +25,8 @@
             },
             callbacks: {
                 before: false,
-                after: false
+                after: false,
+                finish: false
             }
         };
 
@@ -85,9 +86,7 @@
                 'margin': 0
             });
             
-            s.heightTimer = setInterval(function(){
-                adjustHeight(false);
-            }, 100);
+            adjustHeight(false);
         
         }
         
@@ -187,7 +186,9 @@
             });
             
             if(animate){
-                s.elem.stop(true, true).animate({height: wrapHeight}, s.opts.speed);
+                s.elem.stop(true, true).animate({height: wrapHeight}, s.opts.speed, function(){
+                    finish();
+                });
             }else{
                 s.elem.css('height', wrapHeight);
             }
@@ -204,7 +205,7 @@
             }
 
             if(!animate){
-                clearInterval(s.heightTimer);
+                finish();
             }
 
         }
@@ -232,6 +233,12 @@
                 }
             }, false);
 
+        }
+
+        function finish(){
+            if(typeof s.opts.callbacks.finish === 'function'){
+                s.opts.callbacks.finish.call(s, s.targ);
+            }
         }
 
         return {
