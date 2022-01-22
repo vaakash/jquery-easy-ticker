@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>jQuery Easy ticker test</title>
   </head>
-  <body>
+  <body style="max-width: 700px">
 
 <script src="../node_modules/jquery/dist/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="../src/jquery.easy-ticker.js"></script>
@@ -20,6 +20,7 @@ $(document).ready(function(){
         height: 'auto',
         visible: 1,
         mousePause: true,
+        autoplay: true,
         controls: {
             up: '.up',
             down: '.down',
@@ -88,6 +89,12 @@ $(document).ready(function(){
         $('.t5Wrap').fadeToggle();
     });
 
+    var ticker6 = $('.myTicker6').easyTicker({
+        interval: 2000,
+        visible: 3,
+        autoplay: false
+    });
+
 });
 </script>
 
@@ -152,7 +159,7 @@ $(document).ready(function(){
 <button class="t5Btn">Toggle</button>
 <div class="t5Wrap">
     <div class="myTicker5">
-        <ul style="width:100px">
+        <ul>
             <li>Triangles can be made easily using CSS also without any images. This trick requires only div tags and some CSS works. To get this trick, just use the code below.</li>
             <li>List 2</li>
             <li>This trick requires only div tags and some CSS works. To get this trick, just use the code below. This trick requires only div tags and some CSS works. To get this trick, just use the code below.</li>
@@ -163,7 +170,17 @@ $(document).ready(function(){
     </div>
 </div>
 
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam cum, non in dolore doloribus voluptatibus ullam nisi deleniti facere reprehenderit animi, magnam quod necessitatibus illo reiciendis beatae expedita labore qui!</p>
+<h2>Ticker 6</h2>
+<div class="myTicker6">
+    <ul>
+        <li>Triangles can be made easily using CSS also without any images. This trick requires only div tags and some CSS works. To get this trick, just use the code below.</li>
+        <li>List 2</li>
+        <li>This trick requires only div tags and some CSS works. To get this trick, just use the code below. This trick requires only div tags and some CSS works. To get this trick, just use the code below.</li>
+        <li>List 4</li>
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum porro quod nostrum est quos, rerum possimus voluptas exercitationem atque, vel fugiat nobis praesentium animi iure necessitatibus reprehenderit. Pariatur, tempore officia.</li>
+        <li class="last-item">Hey... Triangles can be made easily using CSS also without any images. This trick requires only div tags and some CSS works. To get this trick, just use the code below.</li>
+    </ul>
+</div>
 
 <style>
 .myTicker{

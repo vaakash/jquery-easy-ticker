@@ -1,5 +1,5 @@
 /*
- * jQuery - Easy Ticker plugin - v3.4.0
+ * jQuery - Easy Ticker plugin - v3.5.0
  * https://www.aakashweb.com/
  * Copyright 2022, Aakash Chakravarthy
  * Released under the MIT License.
@@ -16,6 +16,7 @@
             height: 'auto',
             visible: 0,
             mousePause: true,
+            autoplay: true,
             controls: {
                 up: '',
                 down: '',
@@ -92,6 +93,15 @@
         
         function start(){
 
+            if(!s.opts.autoplay)
+                return;
+
+            startForce();
+
+        }
+        
+        function startForce(){
+
             if(s.timer != 0)
                 return;
 
@@ -100,8 +110,9 @@
             }, s.opts.interval);
 
             $(s.opts.controls.toggle).addClass('et-run').html(s.opts.controls.stopText);
+
         }
-        
+
         function stop(){
             clearInterval(s.timer);
             s.timer = 0;
@@ -244,7 +255,7 @@
         return {
             up: function(){ moveDir('up'); },
             down: function(){ moveDir('down'); },
-            start: start,
+            start: startForce,
             stop: stop,
             options: s.opts
         };
