@@ -14,6 +14,7 @@
             speed: 'slow',
             interval: 2000,
             height: 'auto',
+            gap: 15,
             visible: 0,
             mousePause: true,
             autoplay: true,
@@ -74,7 +75,7 @@
         
         function init(){
             
-            s.elem.children().css('margin', 0).children().css('margin', 0);
+            s.elem.children().css('margin', 0).children().css('margin', s.opts.gap);
             
             s.elem.css({
                 position: 'relative',
@@ -178,6 +179,7 @@
             s.targ.children().each(function(){
                 height += $(this).outerHeight();
             });
+            height += s.opts.gap * (s.opts.visible - 1);
             
             s.elem.css({
                 'display': tempDisplay,
@@ -195,6 +197,7 @@
                 wrapHeight += $(this).outerHeight();
                 $(this).addClass(visibleItemClass);
             });
+            wrapHeight += s.opts.gap * (s.opts.visible - 1);
             
             if(animate){
                 s.elem.stop(true, true).animate({height: wrapHeight}, s.opts.speed, function(){
